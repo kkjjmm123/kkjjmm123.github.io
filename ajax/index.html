@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비ncs(ajax)</title>
+    <script src="js/vue.js"></script>
+    <style>
+        *{margin:0;padding:0;}
+        html{padding:50px 50px;}
+        h1{text-align:center;}
+        ul{overflow:hidden;margin:0 auto;}
+        .score{float:left;}
+        .score1{margin-left:502px;}
+        .score li{float:none;width: 100px;}
+        li{list-style:none;text-align:center;width: 100px;border:1px solid #000;border-collapse: collapse;border-spacing:0;}
+        .top{width: 816px;}
+        .top li{float:left;background: purple;color:#fff;}
+        .btn_box{position:absolute;left:73%;top:40%;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>대우학교1반성적표</h1>
+        <ul class="top">
+            <li>출석번호</li>
+            <li>이름</li>
+            <li>성별</li>
+            <li>국어</li>
+            <li>국사</li>
+            <li>수학</li>
+            <li>영어</li>
+            <li>화학</li>
+        </ul>
+        <ul class="score score1">
+            <li v-for="(item,index) in jobs" :key="index">
+                {{item.num}}
+            </li>
+        </ul>
+        <ul class="score">
+            <li v-for="(item,index) in jobs" :key="index">
+                {{item.tit}}
+            </li>
+        </ul>
+        <ul class="score">
+            <li v-for="(item,index) in jobs" :key="index">
+                {{item.s0}}
+            </li>
+        </ul>
+        <ul class="score">
+            <li v-for="(item,index) in jobs" :key="index">
+                {{item.s1}}
+            </li>
+        </ul>
+        <ul class="score">
+            <li v-for="(item,index) in jobs" :key="index">
+                {{item.s2}}
+            </li>
+        </ul>
+        <ul class="score">
+            <li v-for="(item,index) in jobs" :key="index">
+                {{item.s3}}
+            </li>
+        </ul>
+        <ul class="score">
+            <li v-for="(item,index) in jobs" :key="index">
+                {{item.s4}}
+            </li>
+        </ul>
+        <ul class="score">
+            <li v-for="(item,index) in jobs" :key="index">
+                {{item.s5}}
+            </li>
+        </ul>
+        <div class="btn_box">
+            <button type="button" @click="pushData">데이터추가</button>
+            <button type="button" @click="popData">데이터삭제</button>
+         </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                jobs:[
+                    {num:1,tit:'이인포',s0:'남자',s1:98,s2:85,s3:100,s4:75,s5:70},
+                    {num:2,tit:'손포아',s0:'남자',s1:100,s2:98,s3:60,s4:55,s5:50},
+                    {num:3,tit:'김모포',s0:'여자',s1:100,s2:91,s3:95,s4:54,s5:55},
+                    {num:4,tit:'김아아',s0:'여자',s1:95,s2:94,s3:94,s4:89,s5:56},
+                    {num:5,tit:'인모포',s0:'남자',s1:99,s2:88,s3:93,s4:97,s5:54},
+                    {num:6,tit:'인포아',s0:'남자',s1:96,s2:84,s3:95,s4:95,s5:53},
+                    {num:7,tit:'모아인',s0:'여자',s1:99,s2:90,s3:98,s4:70,s5:52},
+                    {num:8,tit:'정모포',s0:'여자',s1:99,s2:93,s3:97,s4:88,s5:78},
+                    {num:9,tit:'이포모',s0:'남자',s1:83,s2:85,s3:82,s4:83,s5:84},
+                ]
+            },
+            methods:{
+                pushData(){
+                    this.jobs.push({num:10,tit:'홍길동',s0:'남자',s1:99,s2:99,s3:99,s4:99,s5:99});
+                },
+                popData(){
+                    this.jobs.pop();
+                }
+            }
+        })
+    </script>
+</body>
+</html>
